@@ -1,7 +1,7 @@
 {
   "$comment": "Central site settings. Empty strings mean 'not supplied yet': the related UI stays hidden. Run `npm run build` after editing. Never put secret keys here; this file is published.",
 
-  "siteUrl": "",
+  "siteUrl": "https://school-jade-one.vercel.app",
   "reviewMode": true,
 
   "brand": {

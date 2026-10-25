@@ -1,0 +1,4 @@
+# Tooling only. Anchor every line with a leading "/" — an unanchored name like "video/"
+# would also match public/assets/video/ and silently strip the site's videos from the build.
+/_qa/
+/_tools/
