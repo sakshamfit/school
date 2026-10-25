@@ -91,10 +91,20 @@ card data or secret keys; the server recalculates every amount from `plans.json`
 
 ## Deployment
 
-Every push to `main` builds the site and publishes it to GitHub Pages (`.github/workflows/pages.yml`):
-https://gireeshkumarreddy.github.io/mundaka-surf-academy/. The project site lives in a sub-folder, so the
-workflow sets `SITE_BASE=/mundaka-surf-academy/` (only the 404 page uses root paths). On a host that serves the
-site from the domain root, leave `SITE_BASE` unset.
+**Vercel (current host)** — https://school-jade-one.vercel.app. The project is connected to this repository and
+`vercel.json` holds everything Vercel needs: `buildCommand: node scripts/build.mjs --check` (the build also runs the
+link check, so a broken link fails the deploy instead of reaching visitors) and `outputDirectory: dist`. Served from
+the domain root, so `SITE_BASE` stays unset. `/assets/img`, `/assets/video`, `/assets/fonts` are cached for a week,
+CSS/JS for five minutes and `/data/plans.json` for one minute; `.vercelignore` keeps `_tools/`, `video/`, `docs/`
+out of the upload. Nothing to install — there are no dependencies.
+
+**GitHub Pages (alternative)** — `docs/github-pages-workflow.yml` builds on every push to `main` and publishes
+`dist/` to GitHub Pages, e.g. https://gireeshkumarreddy.github.io/mundaka-surf-academy/. A project site lives in a
+sub-folder, so that workflow sets `SITE_BASE=/mundaka-surf-academy/` (only the 404 page uses root paths). On a host
+that serves the site from the domain root, leave `SITE_BASE` unset.
+
+`siteUrl` in `site.config.json` is the public origin: set it to whatever domain actually serves the site, because
+canonical URLs, hreflang and `sitemap.xml` are built from it.
 
 ## Mobile performance
 

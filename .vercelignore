@@ -1,0 +1,7 @@
+# Not needed by the build, so they are not uploaded to Vercel.
+_qa/
+_tools/
+video/
+docs/
+logo.jpg
+dist/
