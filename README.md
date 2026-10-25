@@ -95,8 +95,9 @@ card data or secret keys; the server recalculates every amount from `plans.json`
 `vercel.json` holds everything Vercel needs: `buildCommand: node scripts/build.mjs --check` (the build also runs the
 link check, so a broken link fails the deploy instead of reaching visitors) and `outputDirectory: dist`. Served from
 the domain root, so `SITE_BASE` stays unset. `/assets/img`, `/assets/video`, `/assets/fonts` are cached for a week,
-CSS/JS for five minutes and `/data/plans.json` for one minute; `.vercelignore` keeps `_tools/`, `video/`, `docs/`
-out of the upload. Nothing to install — there are no dependencies.
+CSS/JS for five minutes and `/data/plans.json` for one minute; `.vercelignore` keeps `_qa/` and `_tools/` out of the
+upload (its lines are anchored with `/`, an unanchored name would also match `public/assets/…`). Nothing to install —
+there are no dependencies.
 
 **GitHub Pages (alternative)** — `docs/github-pages-workflow.yml` builds on every push to `main` and publishes
 `dist/` to GitHub Pages, e.g. https://gireeshkumarreddy.github.io/mundaka-surf-academy/. A project site lives in a
